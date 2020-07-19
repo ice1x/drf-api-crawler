@@ -12,10 +12,10 @@ TABLE = 'client_posts'
 
 class PostsPipeline(object):
     def __init__(self):
-        self.hostname = 'localhost'
+        self.hostname = '172.18.0.2'
         self.username = 'postgres'
-        self.password = '1q2w3e' # your password
-        self.database = 'ycombinator'
+        self.password = 'postgres'
+        self.database = 'postgres'
         self.connection = None
         self.cursor = None
 
