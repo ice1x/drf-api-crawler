@@ -17,3 +17,6 @@ DRF API with Scrapy Crawler
 
 # Run crawler manually
 * `sudo docker-compose exec drf-api-crawler scrapy crawl forward`
+
+# Run test
+* `sudo docker-compose exec drf-api-crawler python manage.py test`
