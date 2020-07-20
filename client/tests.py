@@ -1,18 +1,26 @@
-import datetime
-
 from django.test import TestCase
-from django.utils import timezone
-
-from client.models import Posts
 
 
-class PostsModelTests(TestCase):
+class PostsViewsTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        # TODO: truncate db table
+        pass
 
-    def test_was_published_recently_with_future_question(self):
-        """
-        was_published_recently() returns False for questions whose pub_date
-        is in the future.
-        """
-        time = timezone.now() + datetime.timedelta(days=30)
-        post = Posts(created=time)
-        self.assertIs(post.id, None)
+    def test_view_url_exists_at_desired_location(self):
+        resp = self.client.get('http://localhost:8000/posts')
+        self.assertEqual(resp.status_code, 200)
+
+    def test_view_base_url_is_404(self):
+        resp = self.client.get('http://localhost:8000')
+        self.assertEqual(resp.status_code, 404)
+
+    def _test_(self):
+        # TODO add data inserting to db to read it via views
+        # resp = self.client.get('http://localhost:8000/posts')
+        # self.assertEqual(resp.status_code, 200)
+        pass
+
+    def tearDown(self) -> None:
+        # TODO: truncate db table
+        pass
