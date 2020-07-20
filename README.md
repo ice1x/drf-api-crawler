@@ -20,3 +20,9 @@ DRF API with Scrapy Crawler
 
 # Run test
 * `sudo docker-compose exec drf-api-crawler python manage.py test`
+
+# Known issue
+* Failed to start cron using docker
+* Workaround: after containers up call `sudo docker-compose exec drf-api-crawler service cron start`
+
+
